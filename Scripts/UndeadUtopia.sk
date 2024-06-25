@@ -45,4 +45,104 @@ on load:
         send "" to the console
         send "=================================================" to the console
     else:
-        send "&5Fiverr Script Loaded!" to the console
+        send "&5UndeadUtopia Loaded!" to the console
+
+on command:
+    if command is "plugins" or "plugin" or "pl":
+        if player does not have permission "NoPluginViewer.Bypass":
+            cancel event
+            send "Server Plugins (1): &aUndeadUtopia"
+
+command /setspawn:
+	trigger:
+		if player has permission "spawn.set":
+			if {spawn} is not set:
+				send "Spawn Seted"
+				set {spawn} to location of player
+			if {spawn} is set:
+				send "You have already set an spawn delete the old one and set a new one"
+		else:
+			send "&cNO!"
+
+on join:
+	teleport player to {spawn}
+			
+command /delspawn:
+	trigger:
+		if player has permission "spawn.del":
+			if {spawn} is set:
+				send "Deleted"
+				delete {spawn}
+			if {spawn} is not set:
+				send "You dont have an spawn set do /setspawn"
+		else:
+			send "&cNO!"			
+command /spawn:
+	trigger:
+		teleport player to {spawn}
+		send "output"
+
+command /gm [<text>]:
+    permission: gm.use
+    permission message: "&4&lNO
+    trigger:
+        if arg 1 is "1" or "c" or "creative":
+            set player's gamemode to creative
+            send action bar "&7Gamemode &aCreative" to player
+        if arg 1 is "0" or "survial":
+            set player's gamemode to survival
+            send action bar "Gamemode Survival" to player
+            send action bar "&7Gamemode &aSurvival" to player
+        if arg 1 is "3" or "spectator" or "s":
+            set player's gamemode to spectator
+            send action bar "&7Gamemode &aSpectator" to player
+
+command /invsee [<player>]:
+        permission: invsee.use
+        permission message: "&4&lNo"
+        trigger:
+                if arg 1 is set:
+                        open the arg-1's inventory for the player
+
+command /day:
+    permission: day.use
+    trigger:
+        send "day"
+        set time to 08:00
+        
+command /night:
+    permission: night.use 
+    trigger:
+        send "night"
+        set time to 24:00
+
+command /heal <player>:
+    permission: heal.use
+    permission message: "&4&lNo"
+    trigger:
+        heal arg-1 by 20 heart
+        send action bar "&aYou have been Healed" to player
+
+command /tp <player>:
+    permission: tp.use
+    trigger:
+        teleport player to arg-1
+        send "you have been Teleportet to &a%arg-1%"
+
+command /feed <player>:
+    permission: feed.use
+    permission message: "&4&lNo"
+    trigger:
+        if arg 1 is not set:
+            set food bar of player to 20
+            send "You have been feeded"
+        else:
+            set food bar of arg 1 to 20
+            send "You have been feeded"
+
+command /god:
+	trigger:
+		player is not god:
+			make player become god
+		player is god:
+			disable god for player
