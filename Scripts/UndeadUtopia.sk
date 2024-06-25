@@ -1,0 +1,48 @@
+# /$$      /$$                 /$$                 /$$$$$$$                  /$$      /$$                      /$$$$$$  /$$$$$$$$      
+#| $$$    /$$$                | $$                | $$__  $$                | $$$    /$$$                     /$$__  $$|_____ $$/      
+#| $$$$  /$$$$  /$$$$$$   /$$$$$$$  /$$$$$$       | $$  \ $$ /$$   /$$      | $$$$  /$$$$  /$$$$$$  /$$   /$$| $$  \__/     /$$/       
+#| $$ $$/$$ $$ |____  $$ /$$__  $$ /$$__  $$      | $$$$$$$ | $$  | $$      | $$ $$/$$ $$ /$$__  $$| $$  | $$| $$$$$$$     /$$/        
+#| $$  $$$| $$  /$$$$$$$| $$  | $$| $$$$$$$$      | $$__  $$| $$  | $$      | $$  $$$| $$| $$  \ $$| $$  | $$| $$__  $$   /$$/         
+#| $$\  $ | $$ /$$__  $$| $$  | $$| $$_____/      | $$  \ $$| $$  | $$      | $$\  $ | $$| $$  | $$| $$  | $$| $$  \ $$  /$$/          
+#| $$ \/  | $$|  $$$$$$$|  $$$$$$$|  $$$$$$$      | $$$$$$$/|  $$$$$$$      | $$ \/  | $$|  $$$$$$/|  $$$$$$/|  $$$$$$/ /$$/           
+#|__/     |__/ \_______/ \_______/ \_______/      |_______/  \____  $$      |__/     |__/ \______/  \______/  \______/ |__/            
+#                                                            /$$  | $$                                                                 
+#                                                           |  $$$$$$/                                                                 
+#                                                            \______/                                                                  
+
+
+options:
+    prefix: &5UndeadUtopia
+
+variables:
+    {info} = true
+command /info:
+    permission: info.use
+    permission message: &4&lyou dont have the permission to do that
+    trigger:
+        if {info} is true:
+            set {info} to false
+            send "&3You have disabled the info in the console!" to player
+        else:
+            set {info} to true
+            send "&3You have enabled the info in the console!" to player
+on load:
+    if {info} is true:
+        send "&6&l$$\      $$\                      $$$$$$\  $$$$$$$$\ " to console
+        send "&6&l$$$\    $$$ |                    $$  __$$\ \____$$  |" to console
+        send "&6&l$$$$\  $$$$ | $$$$$$\  $$\   $$\ $$ /  \__|    $$  / " to console
+        send "&6&l$$\$$\$$ $$ |$$  __$$\ $$ |  $$ |$$$$$$$\     $$  /  " to console
+        send "&6&l$$ \$$$  $$ |$$ /  $$ |$$ |  $$ |$$  __$$\   $$  /   " to console
+        send "&6&l$$ |\$  /$$ |$$ |  $$ |$$ |  $$ |$$ /  $$ | $$  /    " to console
+        send "&6&l$$ | \_/ $$ |\$$$$$$  |\$$$$$$  | $$$$$$  |$$  /     " to console
+        send "&6&l\__|     \__| \______/  \______/  \______/ \__/      " to console
+        send "" to console
+        send "" to console
+        send "=================================================" to the console
+        send "" to the console
+        send "&6UndeadUtopia Loaded!" to the console
+        send "&3if the script comes to an error pls report it to me!" to the console
+        send "" to the console
+        send "=================================================" to the console
+    else:
+        send "&5Fiverr Script Loaded!" to the console
