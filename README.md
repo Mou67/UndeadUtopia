@@ -6,3 +6,5 @@
 If you are gone use my free Scripts and you have some issues with that pls report it to my Discord Server
 
 [My Discord Server](https://discord.gg/FHxY6kUHkw)
+
+All Updates and Changes will be announced in the Discord Server
