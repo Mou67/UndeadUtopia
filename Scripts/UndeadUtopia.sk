@@ -135,7 +135,7 @@ command /feed <player>:
     trigger:
         if arg 1 is not set:
             set food bar of player to 20
-            send "You have been feeded"
+            send "You have have feeded %player%"
         else:
             set food bar of arg 1 to 20
             send "You have been feeded"
